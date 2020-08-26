@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nomina</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse bg-inverse navbar-toggleable sticky-stop">
+		<div class="collapse navbar-collapse">
+			<div class="navbar-nav mr-auto ml-auto text-center">
+				<h3 class="nav-item nav-link active">Nomina</h3>
+			</div>
+		</div>
+	</nav><br><br>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card shadow-lg p-3 mb-5 bg-white">
+					<div class="card-header bg-inverse text-white">
+						<button class="btn btn-danger" type="button" data-toggle="modal" data-target="#modal-lg">Nuevo</button>
+					</div>
+
+					<div class="modal fade" id="modal-lg">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="card-header bg-inverse text-white">
+									<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title">Nuevo Empleado</h4>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="row">
+											<div class="col">
+												<label for="nombres">Nombres</label>
+												<input type="text" placeholder="ingrese sus nombres" class="form-control" id="nombre" required>
+											</div>
+
+											<div class="col">
+												<label for="apellidos">Cedula</label>
+												<input  type="text" placeholder="ingrese la cedula" class="form-control" id="cedula" required>
+											</div>
+										</div><br>
+
+										<div class="row">
+											<div class="col">
+												<label for="nombres">Sueldo Mensual</label>
+												<input type="text" placeholder="ingrese el sueldo" class="form-control" id="sueldomensual" required>
+											</div>
+
+											<div class="col">
+												<label for="apellidos">Dias Trabajados</label>
+												<input  type="text" placeholder="ingrese los dias trabajados" class="form-control" id="diastrabajados" required>
+											</div>
+										</div><br>
+
+										<div class="row">
+											<div class="col">
+												<label for="nombres">Tipo riesgo</label>
+												<input type="text" placeholder="ingrese el tipo de riesgo" class="form-control" id="tiporiesgo" required>
+											</div>
+
+											<div class="col">
+												<label for="apellidos">Horas Extras Diurnas</label>
+												<input  type="text" placeholder="ingrese las horas extras diurnas"  class="form-control" id="HED" required>
+											</div>
+										</div><br>
+
+										<div class="row">
+											<div class="col">
+												<label for="nombres">Horas Extras Nocturnas</label>
+												<input type="text" placeholder="ingrese las horas extras nocturnas" class="form-control" id="HEN" required>
+											</div>
+
+											<div class="col">
+												<label for="apellidos">Horas Extras DD</label>
+												<input  type="text" placeholder="ingrese las horas extras DD"  class="form-control" id="HEDD" required>
+											</div>
+										</div><br>
+
+										<div class="row">
+											<div class="col">
+												<label for="nombres">Horas Extras DN</label>
+												<input type="text" placeholder="ingrese las horas extras DN" class="form-control" id="HEDN" required>
+											</div>
+
+											<div class="col">
+												<label for="apellidos">RN</label>
+												<input  type="text" placeholder="ingrese RN"  class="form-control" id="RN" required>
+											</div>
+										</div><br>
+									</form>
+								</div>
+								<div class="modal-footer justify-content-between">
+									<button type="submit" class="btn btn-default" data-dismiss="modal">Cerrar Ventana</button>
+									<button id="boton" class="btn btn-danger" type="reset" onclick="capturar();">Guardar Datos</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+
+					<div class="table-responsive">
+						<table class="table" id="tabla">
+							<thead class="table table-striped">
+								<tr>
+									<th>Nombre</th>
+									<th>Cedula</th>
+									<th>Sueldo  Mensual</th>
+									<th>Dias Trabajados</th>
+									<th>Tipo de Riesgo</th>
+									<th>HED</th>
+									<th>HEN</th>
+									<th>HEDD</th>
+									<th>HEDN</th>
+									<th>RN</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><<br><br>
+
+	<footer class="fixed-bottom p-3 bg-inverse text-white" style="text-align: center;">
+		<h5>Todos los derechos reservados.</h5>
+	</footer>
+
+	<script>
+
+	function capturar(){
+		function Persona(nombre,cedula,sueldomensual,diastrabajados,tiporiesgo,HED,HEN,HEDD,HEDN,RN){
+			this.nombre=nombre;
+			this.cedula=cedula;
+			this.sueldomensual=sueldomensual;
+			this.diastrabajados=diastrabajados;
+			this.tiporiesgo=tiporiesgo;
+			this.HED=HED;
+			this.HEN=HEN;
+			this.HEDD=HEDD;
+			this.HEDN=HEDN;
+			this.RN=RN;
+		}
+
+		var nombreCapturar = document.getElementById("nombre").value;
+		var cedulaCapturar = document.getElementById("cedula").value;
+		var sueldomensualCapturar = document.getElementById("sueldomensual").value;
+		var diastrabajadosCapturar = document.getElementById("diastrabajados").value;
+		var tiporiesgoCapturar = document.getElementById("tiporiesgo").value;
+		var HEDCapturar = document.getElementById("HED").value;
+		var HENCapturar = document.getElementById("HEN").value;
+		var HEDDCapturar = document.getElementById("HEDD").value;
+		var HEDNCapturar = document.getElementById("HEDN").value;
+		var RNCapturar = document.getElementById("RN").value;
+
+		nuevoSujeto = new Persona(nombreCapturar,cedulaCapturar,sueldomensualCapturar,diastrabajadosCapturar,
+			tiporiesgoCapturar,HEDCapturar,HENCapturar,HEDDCapturar,HEDNCapturar,RNCapturar);
+
+			console.log(nuevoSujeto);
+			mostrar();
+		}
+
+		var baseDatos = [];
+		function mostrar(){
+			baseDatos.push(nuevoSujeto);
+			console.log("capturado");
+
+			document.getElementById("tabla").innerHTML +='<tbody><td>'+nuevoSujeto.nombre+'</td><td>'+
+			nuevoSujeto.cedula+'</td><td>'+nuevoSujeto.sueldomensual+'</td><td>'+nuevoSujeto.diastrabajados+
+			'</td><td>'+nuevoSujeto.tiporiesgo+'</td><td>'+nuevoSujeto.HED+'</td><td>'+nuevoSujeto.HEN+'</td><td>'+
+			nuevoSujeto.HEDD+'</td><td>'+nuevoSujeto.HEDN+'</td><td>'+nuevoSujeto.RN+'</td></tbody>'
+		};
+
+		</script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		<script src="js/fontawesome.min.js"></script>
+	</body>
+	</html>

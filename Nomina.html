@@ -4,8 +4,8 @@
 	<title>Nomina</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
 </head>
+
 <body>
 	<nav class="navbar navbar-inverse bg-inverse navbar-toggleable sticky-stop">
 		<div class="collapse navbar-collapse">
@@ -14,7 +14,6 @@
 			</div>
 		</div>
 	</nav><br><br>
-
 
 	<div class="container">
 		<div class="row">
@@ -120,6 +119,7 @@
 									<th>HEDD</th>
 									<th>HEDN</th>
 									<th>RN</th>
+									<th>Total a Pagar</th>
 								</tr>
 							</thead>
 						</table>
@@ -149,6 +149,7 @@
 			this.RN=RN;
 		}
 
+		//Captura los datos ingresados en el formulario
 		var nombreCapturar = document.getElementById("nombre").value;
 		var cedulaCapturar = document.getElementById("cedula").value;
 		var sueldomensualCapturar = document.getElementById("sueldomensual").value;
@@ -160,8 +161,20 @@
 		var HEDNCapturar = document.getElementById("HEDN").value;
 		var RNCapturar = document.getElementById("RN").value;
 
+		//Valor de cada hora extra
+		var valor_hora = sueldomensualCapturar/240;
+		var valor_hed = 1.25*valor_hora*HEDCapturar;
+		var valor_hen = ;
+		var valor_hedd = ;
+		var valor_hedn = ;
+		var valor_rn = ;
+
+
+		//Calcular sueldo
+		sueldo = sueldomensualCapturar/30*diastrabajadosCapturar;
+
 		nuevoSujeto = new Persona(nombreCapturar,cedulaCapturar,sueldomensualCapturar,diastrabajadosCapturar,
-			tiporiesgoCapturar,HEDCapturar,HENCapturar,HEDDCapturar,HEDNCapturar,RNCapturar);
+			tiporiesgoCapturar,valor_hed,HENCapturar,HEDDCapturar,HEDNCapturar,RNCapturar,sueldo);
 
 			console.log(nuevoSujeto);
 			mostrar();
@@ -175,7 +188,7 @@
 			document.getElementById("tabla").innerHTML +='<tbody><td>'+nuevoSujeto.nombre+'</td><td>'+
 			nuevoSujeto.cedula+'</td><td>'+nuevoSujeto.sueldomensual+'</td><td>'+nuevoSujeto.diastrabajados+
 			'</td><td>'+nuevoSujeto.tiporiesgo+'</td><td>'+nuevoSujeto.HED+'</td><td>'+nuevoSujeto.HEN+'</td><td>'+
-			nuevoSujeto.HEDD+'</td><td>'+nuevoSujeto.HEDN+'</td><td>'+nuevoSujeto.RN+'</td></tbody>'
+			nuevoSujeto.HEDD+'</td><td>'+nuevoSujeto.HEDN+'</td><td>'+nuevoSujeto.RN+'</td><td>'+sueldo+'</td></tbody>'
 		};
 
 		</script>
